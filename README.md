@@ -15,16 +15,6 @@ Sockets Links.
 ```
 import socket
 s=socket.socket()
-s.connect(('localhost',8000))
-while True:
- msg=input("Client>")
- s.send(msg.encode())
- print("Server>",s.recv(1024).decode())
-```
-## SERVER
-```
-import socket
-s=socket.socket()
 s.bind(('localhost',8000))
 s.listen(5)
 c,addr=s.accept()
@@ -33,6 +23,17 @@ while True:
    c.send(ClientMessage.encode())
 
 ```
+## SERVER
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+ msg=input("Client>")
+ s.send(msg.encode())
+ print("Server>",s.recv(1024).decode())
+```
+
 ## OUPUT
 ## CLIENT
 ![Screenshot 2024-09-21 104537](https://github.com/user-attachments/assets/0a865236-a1b5-478f-a4f0-56eb6c7bf147)
